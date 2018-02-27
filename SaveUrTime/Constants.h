@@ -22,6 +22,24 @@ extern NSString * const GMT_ABBREVIATION;
 extern NSString * const NEWS_CELL_REUSABLE_IDENTIFIER;
 extern NSString * const NEWS_CELL_DATETIME_FORMAT;
 extern NSString * const NEWS_ARTICLE_VIEW_DATETIME_FORMAT;
-extern NSString * const SEGUE_FROM_NEWS_TABLE_TO_NEWS_ARTICLE_IDENTIFIER;
+extern NSString * const SEGUE_IDENTIFIER_FROM_NEWS_TABLE_TO_NEWS_ARTICLE;
+extern NSString * const TASK_DATETIME_FORMAT;
+extern NSString * const TASK_CELL_REUSABLE_IDENTIFIER;
+extern NSString * const SEGUE_IDENTIFIER_FROM_TASK_TABLE_TO_TASK_DETAIL;
+extern NSString * const TASK_STATUS_ACTIVE_STR;
+extern NSString * const TASK_STATUS_COMPLETED_STR;
+extern NSString * const TASK_STATUS_DELETED_STR;
+
+typedef NS_ENUM(int, TaskStatus){
+    TASK_STATUS_ACTIVE = 1,
+    TASK_STATUS_COMPLETED = 2,
+    TASK_STATUS_DELETED = 3
+};
+
+typedef NS_ENUM(int, TaskWorkMode){
+    TASK_WORK_MODE_NEW = 0,
+    TASK_WORK_MODE_VIEW = 1,
+    TASK_WORK_MODE_EDIT = 2,
+};
 
 @end

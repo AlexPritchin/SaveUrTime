@@ -13,8 +13,15 @@
 		FA089ED02029F323009659B4 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA089ECF2029F323009659B4 /* NewsTableViewCell.m */; };
 		FA089ED3202A1BF4009659B4 /* NewsArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA089ED2202A1BF4009659B4 /* NewsArticleViewController.m */; };
 		FA12BD9820346AF2007C15CD /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FA12BD9720346AF2007C15CD /* Constants.m */; };
+		FA237A16203F2A4D0059A496 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = FA237A15203F2A4D0059A496 /* Task.m */; };
+		FA237A19203F2DA70059A496 /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA237A18203F2DA70059A496 /* TaskTableViewCell.m */; };
+		FA237A1D203F3C130059A496 /* TasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA237A1C203F3C130059A496 /* TasksTableViewController.m */; };
+		FA237A20203F3C520059A496 /* TasksDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA237A1F203F3C520059A496 /* TasksDetailViewController.m */; };
+		FA237A29203F52940059A496 /* DBWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = FA237A28203F52940059A496 /* DBWorker.m */; };
 		FA5C2E5520306CE3003E439C /* RSSWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2E5420306CE3003E439C /* RSSWorker.m */; };
 		FA6507F3202DFFCA005CDF3B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6507F2202DFFCA005CDF3B /* Default-568h@2x.png */; };
+		FA9EA3A42045FBF100D614C1 /* news24.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9EA3A32045FBF100D614C1 /* news24.png */; };
+		FA9EA3A62045FD3000D614C1 /* tasks24.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9EA3A52045FD3000D614C1 /* tasks24.png */; };
 		FABB93A52029BC2B001ED45F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FABB93A42029BC2B001ED45F /* main.m */; };
 		FABB93A82029BC2B001ED45F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FABB93A72029BC2B001ED45F /* AppDelegate.m */; };
 		FABB93AE2029BC2B001ED45F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABB93AC2029BC2B001ED45F /* Main.storyboard */; };
@@ -35,9 +42,21 @@
 		FA089ED2202A1BF4009659B4 /* NewsArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsArticleViewController.m; sourceTree = "<group>"; };
 		FA12BD9620346AF2007C15CD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FA12BD9720346AF2007C15CD /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		FA237A14203F2A4D0059A496 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		FA237A15203F2A4D0059A496 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		FA237A17203F2DA70059A496 /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
+		FA237A18203F2DA70059A496 /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
+		FA237A1B203F3C130059A496 /* TasksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksTableViewController.h; sourceTree = "<group>"; };
+		FA237A1C203F3C130059A496 /* TasksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksTableViewController.m; sourceTree = "<group>"; };
+		FA237A1E203F3C520059A496 /* TasksDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksDetailViewController.h; sourceTree = "<group>"; };
+		FA237A1F203F3C520059A496 /* TasksDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksDetailViewController.m; sourceTree = "<group>"; };
+		FA237A27203F52930059A496 /* DBWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWorker.h; sourceTree = "<group>"; };
+		FA237A28203F52940059A496 /* DBWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBWorker.m; sourceTree = "<group>"; };
 		FA5C2E5320306CE3003E439C /* RSSWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSWorker.h; sourceTree = "<group>"; };
 		FA5C2E5420306CE3003E439C /* RSSWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSWorker.m; sourceTree = "<group>"; };
 		FA6507F2202DFFCA005CDF3B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA9EA3A32045FBF100D614C1 /* news24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news24.png; sourceTree = "<group>"; };
+		FA9EA3A52045FD3000D614C1 /* tasks24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tasks24.png; sourceTree = "<group>"; };
 		FABB93A02029BC2B001ED45F /* SaveUrTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveUrTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABB93A42029BC2B001ED45F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FABB93A62029BC2B001ED45F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,6 +107,77 @@
 			name = UIClasses;
 			sourceTree = "<group>";
 		};
+		FA237A1A203F3B320059A496 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA089EC52029CB8D009659B4 /* NewsTableViewController.h */,
+				FA089EC62029CB8D009659B4 /* NewsTableViewController.m */,
+				FA089ED1202A1BF4009659B4 /* NewsArticleViewController.h */,
+				FA089ED2202A1BF4009659B4 /* NewsArticleViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FA237A2A204092440059A496 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				FA12BD9B20347114007C15CD /* UIClasses */,
+				FA12BD99203470BC007C15CD /* Libraries */,
+				FA12BD9A20347102007C15CD /* Models */,
+				FA237A1A203F3B320059A496 /* Controllers */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		FA237A2B2040924A0059A496 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				FA237A2C204092640059A496 /* UIClasses */,
+				FA237A2D2040926F0059A496 /* Libraries */,
+				FA237A2E204092890059A496 /* Models */,
+				FA237A2F204092930059A496 /* Controllers */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		FA237A2C204092640059A496 /* UIClasses */ = {
+			isa = PBXGroup;
+			children = (
+				FA237A17203F2DA70059A496 /* TaskTableViewCell.h */,
+				FA237A18203F2DA70059A496 /* TaskTableViewCell.m */,
+			);
+			name = UIClasses;
+			sourceTree = "<group>";
+		};
+		FA237A2D2040926F0059A496 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				FA237A27203F52930059A496 /* DBWorker.h */,
+				FA237A28203F52940059A496 /* DBWorker.m */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		FA237A2E204092890059A496 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA237A14203F2A4D0059A496 /* Task.h */,
+				FA237A15203F2A4D0059A496 /* Task.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FA237A2F204092930059A496 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA237A1B203F3C130059A496 /* TasksTableViewController.h */,
+				FA237A1C203F3C130059A496 /* TasksTableViewController.m */,
+				FA237A1E203F3C520059A496 /* TasksDetailViewController.h */,
+				FA237A1F203F3C520059A496 /* TasksDetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		FABB93972029BC29001ED45F = {
 			isa = PBXGroup;
 			children = (
@@ -112,13 +202,8 @@
 				FABB93A72029BC2B001ED45F /* AppDelegate.m */,
 				FA12BD9620346AF2007C15CD /* Constants.h */,
 				FA12BD9720346AF2007C15CD /* Constants.m */,
-				FA12BD9B20347114007C15CD /* UIClasses */,
-				FA12BD99203470BC007C15CD /* Libraries */,
-				FA12BD9A20347102007C15CD /* Models */,
-				FA089EC52029CB8D009659B4 /* NewsTableViewController.h */,
-				FA089EC62029CB8D009659B4 /* NewsTableViewController.m */,
-				FA089ED1202A1BF4009659B4 /* NewsArticleViewController.h */,
-				FA089ED2202A1BF4009659B4 /* NewsArticleViewController.m */,
+				FA237A2A204092440059A496 /* News */,
+				FA237A2B2040924A0059A496 /* Tasks */,
 				FABB93AC2029BC2B001ED45F /* Main.storyboard */,
 				FABB93AF2029BC2B001ED45F /* Assets.xcassets */,
 				FABB93B12029BC2B001ED45F /* LaunchScreen.storyboard */,
@@ -131,6 +216,8 @@
 		FABB93A32029BC2B001ED45F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA9EA3A52045FD3000D614C1 /* tasks24.png */,
+				FA9EA3A32045FBF100D614C1 /* news24.png */,
 				FABB93A42029BC2B001ED45F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -194,7 +281,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9EA3A42045FBF100D614C1 /* news24.png in Resources */,
 				FABB93B32029BC2B001ED45F /* LaunchScreen.storyboard in Resources */,
+				FA9EA3A62045FD3000D614C1 /* tasks24.png in Resources */,
 				FA6507F3202DFFCA005CDF3B /* Default-568h@2x.png in Resources */,
 				FABB93B02029BC2B001ED45F /* Assets.xcassets in Resources */,
 				FABB93AE2029BC2B001ED45F /* Main.storyboard in Resources */,
@@ -208,14 +297,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA237A16203F2A4D0059A496 /* Task.m in Sources */,
 				FA5C2E5520306CE3003E439C /* RSSWorker.m in Sources */,
+				FA237A19203F2DA70059A496 /* TaskTableViewCell.m in Sources */,
+				FA237A29203F52940059A496 /* DBWorker.m in Sources */,
 				FA089ED02029F323009659B4 /* NewsTableViewCell.m in Sources */,
 				FA089ECA2029CBD5009659B4 /* NewsArticle.m in Sources */,
+				FA237A20203F3C520059A496 /* TasksDetailViewController.m in Sources */,
 				FA089ED3202A1BF4009659B4 /* NewsArticleViewController.m in Sources */,
 				FA089ECD2029CC87009659B4 /* NewsArticlesModel.m in Sources */,
 				FA089EC72029CB8D009659B4 /* NewsTableViewController.m in Sources */,
 				FABB93A82029BC2B001ED45F /* AppDelegate.m in Sources */,
 				FABB93A52029BC2B001ED45F /* main.m in Sources */,
+				FA237A1D203F3C130059A496 /* TasksTableViewController.m in Sources */,
 				FA12BD9820346AF2007C15CD /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +431,7 @@
 				INFOPLIST_FILE = SaveUrTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-lsqlite3";
 				PRODUCT_BUNDLE_IDENTIFIER = AlPritchin.SaveUrTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -349,6 +444,7 @@
 				INFOPLIST_FILE = SaveUrTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-lsqlite3";
 				PRODUCT_BUNDLE_IDENTIFIER = AlPritchin.SaveUrTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

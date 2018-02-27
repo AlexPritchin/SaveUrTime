@@ -18,15 +18,13 @@ bool isInsideItem = false, isElementEnd = true;
 
 -(nullable NSArray *)getRss{
     rssArray = [[NSMutableArray alloc] init];
-    //rssData = [[NSData alloc] init];
     NSURLSessionConfiguration *urlSessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:urlSessionConfiguration delegate:self delegateQueue:nil];
     NSURLSessionDataTask *urlSessionDataTask = [urlSession dataTaskWithURL:[NSURL URLWithString:BBC_RSS_URL]];
-    //NSURL *bbcRss = [NSURL URLWithString:BBC_RSS_URL];
     [urlSessionDataTask resume];
-    while (rssData == nil)
+    while (rssData == nil) {
         sleep(2);
-    //NSXMLParser *rssParser = [[NSXMLParser alloc] initWithContentsOfURL:bbcRss];
+    }
     NSXMLParser *rssParser = [[NSXMLParser alloc] initWithData:rssData];
     [rssParser setDelegate:self];
     [rssParser parse];
@@ -44,9 +42,9 @@ bool isInsideItem = false, isElementEnd = true;
         isElementEnd = true;
         foundItem = [[NewsArticle alloc] init];
     }
-    else
-        if ([elemName isEqualToString:BBC_RSS_XML_TAG_MEDIATHUMBNAIL])
+    else if ([elemName isEqualToString:BBC_RSS_XML_TAG_MEDIATHUMBNAIL]) {
             foundItem.thumbnail = [NSData dataWithContentsOfURL:[NSURL URLWithString:attributeDict[@"url"]]];
+    }
     else
         isElementEnd = false;
 }
@@ -63,22 +61,22 @@ bool isInsideItem = false, isElementEnd = true;
     if (isInsideItem) {
         if (!isElementEnd) {
             NSString *trimmedStr = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            if ([elemName isEqualToString:BBC_RSS_XML_TAG_TITLE])
+            if ([elemName isEqualToString:BBC_RSS_XML_TAG_TITLE]) {
                 foundItem.title = trimmedStr;
-            else
-                if ([elemName isEqualToString:BBC_RSS_XML_TAG_DESCRIPTION])
-                    foundItem.descript = trimmedStr;
-                else
-                    if ([elemName isEqualToString:BBC_RSS_XML_TAG_LINK])
-                        foundItem.link = trimmedStr;
-                    else
-                        if ([elemName isEqualToString:BBC_RSS_XML_TAG_PUBDATE]) {
-                            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-                            [dateFormat setDateFormat:BBC_RSS_XML_DATETIME_FORMAT];
-                            [dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:GMT_ABBREVIATION]];
-                            NSString *trimmedStrWithoutGMT = [trimmedStr substringToIndex:(NSUInteger)[trimmedStr length]-4];
-                            foundItem.pubDate = [dateFormat dateFromString:trimmedStrWithoutGMT];
-                        }
+            }
+            else if ([elemName isEqualToString:BBC_RSS_XML_TAG_DESCRIPTION]) {
+                     foundItem.descript = trimmedStr;
+            }
+            else if ([elemName isEqualToString:BBC_RSS_XML_TAG_LINK]) {
+                     foundItem.link = trimmedStr;
+            }
+            else if ([elemName isEqualToString:BBC_RSS_XML_TAG_PUBDATE]) {
+                     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                     [dateFormat setDateFormat:BBC_RSS_XML_DATETIME_FORMAT];
+                     [dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:GMT_ABBREVIATION]];
+                     NSString *trimmedStrWithoutGMT = [trimmedStr substringToIndex:(NSUInteger)[trimmedStr length]-4];
+                     foundItem.pubDate = [dateFormat dateFromString:trimmedStrWithoutGMT];
+            }
         }
     }
 }

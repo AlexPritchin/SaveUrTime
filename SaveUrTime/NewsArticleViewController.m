@@ -31,7 +31,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)urlBtnTouched:(id)sender {
+- (IBAction)urlButtonTouched:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.articleToDisplay.link]];
 }
 

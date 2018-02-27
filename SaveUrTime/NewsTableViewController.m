@@ -60,8 +60,9 @@ NewsArticlesModel *newsModel;
     
     NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NEWS_CELL_REUSABLE_IDENTIFIER forIndexPath:indexPath];
     
-    if (cell == nil)
+    if (cell == nil) {
         return [[UITableViewCell alloc] init];
+    }
     
     [cell loadData:newsModel.newsArticlesArray[indexPath.row]];
     
@@ -69,15 +70,14 @@ NewsArticlesModel *newsModel;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:SEGUE_FROM_NEWS_TABLE_TO_NEWS_ARTICLE_IDENTIFIER sender:indexPath];
+    [self performSegueWithIdentifier:SEGUE_IDENTIFIER_FROM_NEWS_TABLE_TO_NEWS_ARTICLE sender:indexPath];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:SEGUE_FROM_NEWS_TABLE_TO_NEWS_ARTICLE_IDENTIFIER]) {
+    if ([segue.identifier isEqualToString:SEGUE_IDENTIFIER_FROM_NEWS_TABLE_TO_NEWS_ARTICLE]) {
         NewsArticleViewController *nArtViewContr = segue.destinationViewController;
         nArtViewContr.articleToDisplay = newsModel.newsArticlesArray[((NSIndexPath *)(sender)).row];
     }
-        
 }
 
 
