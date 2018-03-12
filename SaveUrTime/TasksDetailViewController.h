@@ -8,19 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "Task.h"
-#import "DBWorker.h"
+#import "DBWorkerCoreData.h"
 #import "Constants.h"
+#import "PlaceholderTextView.h"
 
 @interface TasksDetailViewController : UIViewController
 
 @property (strong, nonatomic) Task *taskToDisplay;
 @property (nonatomic, assign) int taskMode;
-@property (strong, nonatomic) DBWorker *dbWork;
+@property (strong, nonatomic) DBWorkerCoreData *dbWork;
 
 @property (weak, nonatomic) IBOutlet UILabel *modifiedDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UITextView *titleTextView;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet PlaceholderTextView *titleTextView;
+@property (weak, nonatomic) IBOutlet PlaceholderTextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 

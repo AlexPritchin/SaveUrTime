@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Constants : NSObject
 
@@ -23,12 +24,14 @@ extern NSString * const NEWS_CELL_REUSABLE_IDENTIFIER;
 extern NSString * const NEWS_CELL_DATETIME_FORMAT;
 extern NSString * const NEWS_ARTICLE_VIEW_DATETIME_FORMAT;
 extern NSString * const SEGUE_IDENTIFIER_FROM_NEWS_TABLE_TO_NEWS_ARTICLE;
+extern NSString * const NEWS_IMAGES_DIR_NAME;
 extern NSString * const TASK_DATETIME_FORMAT;
 extern NSString * const TASK_CELL_REUSABLE_IDENTIFIER;
 extern NSString * const SEGUE_IDENTIFIER_FROM_TASK_TABLE_TO_TASK_DETAIL;
 extern NSString * const TASK_STATUS_ACTIVE_STR;
 extern NSString * const TASK_STATUS_COMPLETED_STR;
 extern NSString * const TASK_STATUS_DELETED_STR;
+extern CGFloat const PLACEHOLDER_TEXT_VIEW_TEXT_CHANGED_ANIMATION_DURATION;
 
 typedef NS_ENUM(int, TaskStatus){
     TASK_STATUS_ACTIVE = 1,

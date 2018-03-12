@@ -8,20 +8,20 @@
 
 #import "TasksTableViewController.h"
 
-@interface TasksTableViewController ()
+@interface TasksTableViewController (){
+    NSMutableArray<Task *> *tasksArray;
+    DBWorkerCoreData *dataBase;
+    int taskMode;
+}
 
 @end
 
 @implementation TasksTableViewController
 
-NSMutableArray<Task *> *tasksArray;
-DBWorker *dataBase;
-int taskMode;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     tasksArray = [[NSMutableArray alloc] init];
-    dataBase = [[DBWorker alloc] init];
+    dataBase = [[DBWorkerCoreData alloc] init];
     taskMode = -1;
     self.tableViewOutlet.tableFooterView = [[UIView alloc] init];
     self.tableViewOutlet.rowHeight = UITableViewAutomaticDimension;
@@ -95,7 +95,7 @@ int taskMode;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [dataBase remove:tasksArray[indexPath.row].idValue];
+        [dataBase remove:tasksArray[indexPath.row].createdDate];
         [tasksArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

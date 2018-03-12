@@ -35,7 +35,7 @@
     
     self.pubDateLabel.text = [dtFormat stringFromDate:articleForLoadData.pubDate];
     self.titleLabel.text = articleForLoadData.title;
-    self.thumbnailImageView.image = [UIImage imageWithData:articleForLoadData.thumbnail];
+    self.thumbnailImageView.image = [UIImage imageWithData:[ImageWorker getImageForUrl:articleForLoadData.thumbnail]];
 }
 
 @end

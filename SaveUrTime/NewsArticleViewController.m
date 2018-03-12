@@ -22,7 +22,7 @@
     
     self.titleLabel.text = self.articleToDisplay.title;
     self.pubDateLabel.text = [dtFormat stringFromDate:self.articleToDisplay.pubDate];
-    self.thumbnailImageView.image = [UIImage imageWithData:self.articleToDisplay.thumbnail];
+    self.thumbnailImageView.image = [UIImage imageWithData:[ImageWorker getImageForUrl:self.articleToDisplay.thumbnail]];
     self.descriptionLabel.text = self.articleToDisplay.descript;
 }
 

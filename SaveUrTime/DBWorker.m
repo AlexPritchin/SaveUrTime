@@ -8,9 +8,13 @@
 
 #import "DBWorker.h"
 
-@implementation DBWorker
+@interface DBWorker (){
+    sqlite3 *db;
+}
 
-sqlite3 *db;
+@end
+
+@implementation DBWorker
 
 - (instancetype)init
 {
@@ -19,7 +23,6 @@ sqlite3 *db;
         NSFileManager *manager = [[NSFileManager alloc] init];
         NSURL *fileURL = [manager URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:false error:nil];
         fileURL = [fileURL URLByAppendingPathComponent:@"TasksDatabase.sqlite"];
-        //NSLog(@"%@", fileURL.path);
         if (![manager fileExistsAtPath:fileURL.path]){
             sqlite3_open([fileURL.path UTF8String], &db);
             sqlite3_exec(db, "PRAGMA foreign_keys = ON", nil, nil, nil);

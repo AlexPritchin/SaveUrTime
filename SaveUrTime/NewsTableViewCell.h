@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewsArticle.h"
 #import "Constants.h"
+#import "ImageWorker.h"
 
 @interface NewsTableViewCell : UITableViewCell
 

@@ -14,6 +14,6 @@
 @property (strong, atomic) NSString *descript;
 @property (strong, atomic) NSString *link;
 @property (strong, atomic) NSDate *pubDate;
-@property (strong, atomic) NSData *thumbnail;
+@property (strong, atomic) NSURL *thumbnail;
 
 @end

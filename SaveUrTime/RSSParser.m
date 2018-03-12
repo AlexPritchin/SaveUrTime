@@ -1,38 +1,41 @@
 //
-//  RSSWorker.m
+//  RSSParser.m
 //  SaveUrTime
 //
-//  Created by Alex Pritchin on 11/02/18.
+//  Created by Alex Pritchin on 04/03/18.
 //  Copyright © 2018 Alex Pritchin. All rights reserved.
 //
 
-#import "RSSWorker.h"
+#import "RSSParser.h"
 
-@implementation RSSWorker
+@interface RSSParser (){
+    NSMutableArray *rssArray;
+    NewsArticle *foundItem;
+    NSString *elemName;
+    bool isInsideItem, isElementEnd;
+}
 
-NSMutableArray *rssArray;
-NSData *rssData;
-NewsArticle *foundItem;
-NSString *elemName;
-bool isInsideItem = false, isElementEnd = true;
+@end
 
--(nullable NSArray *)getRss{
-    rssArray = [[NSMutableArray alloc] init];
-    NSURLSessionConfiguration *urlSessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:urlSessionConfiguration delegate:self delegateQueue:nil];
-    NSURLSessionDataTask *urlSessionDataTask = [urlSession dataTaskWithURL:[NSURL URLWithString:BBC_RSS_URL]];
-    [urlSessionDataTask resume];
-    while (rssData == nil) {
-        sleep(2);
+@implementation RSSParser
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        isInsideItem = false;
+        isElementEnd = true;
     }
+    return self;
+}
+
+-(nullable NSArray *)parseRssFromData:(nonnull NSData *)rssData{
+    rssArray = [[NSMutableArray alloc] init];
+    
     NSXMLParser *rssParser = [[NSXMLParser alloc] initWithData:rssData];
     [rssParser setDelegate:self];
     [rssParser parse];
     return [rssArray copy];
-}
-
--(void)URLSession: (nonnull NSURLSession *)session dataTask:(nonnull NSURLSessionDataTask *)dataTask didReceiveData:(nullable NSData *)data{
-    rssData = data;
 }
 
 -(void)parser: (nonnull NSXMLParser *)parser didStartElement:(nonnull NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(nonnull NSDictionary<NSString *,NSString *> *)attributeDict{
@@ -43,7 +46,7 @@ bool isInsideItem = false, isElementEnd = true;
         foundItem = [[NewsArticle alloc] init];
     }
     else if ([elemName isEqualToString:BBC_RSS_XML_TAG_MEDIATHUMBNAIL]) {
-            foundItem.thumbnail = [NSData dataWithContentsOfURL:[NSURL URLWithString:attributeDict[@"url"]]];
+            foundItem.thumbnail = [NSURL URLWithString:attributeDict[@"url"]];
     }
     else
         isElementEnd = false;

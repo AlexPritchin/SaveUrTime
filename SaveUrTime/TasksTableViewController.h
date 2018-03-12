@@ -10,7 +10,7 @@
 #import "TaskTableViewCell.h"
 #import "Task.h"
 #import "TasksDetailViewController.h"
-#import "DBWorker.h"
+#import "DBWorkerCoreData.h"
 #import "Constants.h"
 
 @interface TasksTableViewController : UITableViewController <UIGestureRecognizerDelegate>

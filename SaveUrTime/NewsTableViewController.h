@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "NewsTableViewCell.h"
-#import "NewsArticlesModel.h"
 #import "NewsArticleViewController.h"
 #import "Constants.h"
+#import "NewsDataWorker.h"
 
-@interface NewsTableViewController : UITableViewController
+@interface NewsTableViewController : UITableViewController <NewsDataWorkerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViewOutlet;
 

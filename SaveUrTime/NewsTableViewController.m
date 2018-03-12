@@ -8,25 +8,22 @@
 
 #import "NewsTableViewController.h"
 
-@interface NewsTableViewController ()
+@interface NewsTableViewController (){
+    UIActivityIndicatorView *dataDownldActInd;
+    NSArray<NewsArticle *> *newsArticlesArray;
+}
 
 @end
 
 @implementation NewsTableViewController
 
-UIActivityIndicatorView *dataDownldActInd;
-NewsArticlesModel *newsModel;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    newsModel = [[NewsArticlesModel alloc] init];
-    if (newsModel.newsArticlesArray == nil) {
-        dataDownldActInd = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        self.tableViewOutlet.backgroundView = dataDownldActInd;
-        self.tableViewOutlet.tableFooterView = [[UIView alloc] init];
-        self.tableViewOutlet.rowHeight = UITableViewAutomaticDimension;
-        self.tableViewOutlet.estimatedRowHeight = 57;
-    }
+    dataDownldActInd = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.tableViewOutlet.backgroundView = dataDownldActInd;
+    self.tableViewOutlet.tableFooterView = [[UIView alloc] init];
+    self.tableViewOutlet.rowHeight = UITableViewAutomaticDimension;
+    self.tableViewOutlet.estimatedRowHeight = 57;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,15 +33,11 @@ NewsArticlesModel *newsModel;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (newsModel.newsArticlesArray == nil) {
+    if (newsArticlesArray == nil) {
         [dataDownldActInd startAnimating];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),  ^{
-            [newsModel fillNewsArray];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [dataDownldActInd stopAnimating];
-                [self.tableViewOutlet reloadData];
-            });
-        });
+        NewsDataWorker *rssWorker = [[NewsDataWorker alloc] init];
+        rssWorker.delegate = self;
+        [rssWorker initializeData];
     }
 }
 
@@ -53,7 +46,7 @@ NewsArticlesModel *newsModel;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return newsModel.newsArticlesArray.count;
+    return newsArticlesArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,21 +57,27 @@ NewsArticlesModel *newsModel;
         return [[UITableViewCell alloc] init];
     }
     
-    [cell loadData:newsModel.newsArticlesArray[indexPath.row]];
+    [cell loadData:newsArticlesArray[indexPath.row]];
     
     return cell;
 }
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:SEGUE_IDENTIFIER_FROM_NEWS_TABLE_TO_NEWS_ARTICLE sender:indexPath];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:SEGUE_IDENTIFIER_FROM_NEWS_TABLE_TO_NEWS_ARTICLE]) {
         NewsArticleViewController *nArtViewContr = segue.destinationViewController;
-        nArtViewContr.articleToDisplay = newsModel.newsArticlesArray[((NSIndexPath *)(sender)).row];
+        nArtViewContr.articleToDisplay = newsArticlesArray[((NSIndexPath *)(sender)).row];
     }
 }
 
+-(void)didFinishDataInitialization:(NSArray<NewsArticle *> *)rssDataArray{
+    newsArticlesArray = [[NSArray<NewsArticle *> alloc] init];
+    newsArticlesArray = rssDataArray;
+    [dataDownldActInd stopAnimating];
+    [self.tableViewOutlet reloadData];
+}
 
 @end

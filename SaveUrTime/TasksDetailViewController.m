@@ -22,8 +22,8 @@
         self.editButton.enabled = false;
         self.modifiedDateLabel.hidden = true;
         self.statusLabel.hidden = true;
-        self.titleTextView.text = @"Title";
-        self.descriptionTextView.text = @"Description";
+        //self.titleTextView.text = @"Title";
+        //self.descriptionTextView.text = @"Description";
         [self setBorderFor:self.titleTextView withColor:[UIColor grayColor]];
         [self setBorderFor:self.descriptionTextView withColor:[UIColor grayColor]];
     }
