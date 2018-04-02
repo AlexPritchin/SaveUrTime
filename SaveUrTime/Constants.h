@@ -42,7 +42,7 @@ typedef NS_ENUM(int, TaskStatus){
 typedef NS_ENUM(int, TaskWorkMode){
     TASK_WORK_MODE_NEW = 0,
     TASK_WORK_MODE_VIEW = 1,
-    TASK_WORK_MODE_EDIT = 2,
+    TASK_WORK_MODE_EDIT = 2
 };
 
 @end

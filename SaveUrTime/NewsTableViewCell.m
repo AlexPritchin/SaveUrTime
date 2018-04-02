@@ -35,7 +35,12 @@
     
     self.pubDateLabel.text = [dtFormat stringFromDate:articleForLoadData.pubDate];
     self.titleLabel.text = articleForLoadData.title;
-    self.thumbnailImageView.image = [UIImage imageWithData:[ImageWorker getImageForUrl:articleForLoadData.thumbnail]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),  ^{
+        __block UIImage *image = [UIImage imageWithData:[ImageWorker getImageForUrl:articleForLoadData.thumbnail]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.thumbnailImageView.image = image;
+        });
+    });
 }
 
 @end
